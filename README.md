@@ -1,8 +1,6 @@
 # protoncheck  
 lightweight, fast waybar/polybar/yabar/i3blocks module to check the amount of unread emails in a ProtonMail inbox.
 
-*Note: ProtonMail's API currently requires a paid ProtonMail plan for API access.*
-
 ## Installation
 You may compile protoncheck yourself or download a copy from the [Releases](https://github.com/servusdei2018/protoncheck/releases/latest).
 

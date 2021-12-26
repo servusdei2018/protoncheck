@@ -2,12 +2,8 @@ package main
 
 import (
 	"context"
-
+	
 	api "github.com/ProtonMail/proton-bridge/pkg/pmapi"
-)
-
-const (
-	VERSION = "2.0.1+integrationtests"
 )
 
 var (
@@ -15,7 +11,10 @@ var (
 )
 
 func init() {
-	manager = api.New(api.NewConfig("bridge", VERSION))
+	config := api.NewConfig("Android", "1.13.39")
+	config.GetUserAgent = UserAgent
+	config.AppVersion = "Android_1.13.39"
+	manager = api.New(config)
 }
 
 // Retrieves the number of unread messages in a ProtonMail Inbox.
@@ -33,4 +32,8 @@ func Counts() (int, error) {
 	}
 
 	return counts[0].Unread, nil
+}
+
+func UserAgent() string {
+	return "ProtonMail/1.13.39 (Android 29; Google Marlin)"
 }
