@@ -17,10 +17,10 @@ Below is a sample Waybar configuration to check your ProtonMail inbox every 30 s
 }
 
 "custom/protoncheck": {
-    "exec": "~/bin/protoncheck --username USER@protonmail.com --password PASSWORD",
+		"exec": "~/bin/protoncheck --username USER@protonmail.com --password PASSWORD",
 		"format": " {}",
-    "interval": 30,
-    "on-click": "xdg-open https://mail.protonmail.com/inbox"
+		"interval": 30,
+		"on-click": "xdg-open https://mail.protonmail.com/inbox"
 }
 ```
 
