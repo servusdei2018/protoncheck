@@ -61,7 +61,10 @@ interval=30
 color=#A4C2F4
 ```
 
-## Sponsoring 
+## Credits
+ - Special thank you to [@crabvk](https://github.com/crabvk) for making [bar-protonmail](https://github.com/crabvk/bar-protonmail), without which I wouldn't have had the inspiration to make protoncheck.
+
+## Sponsoring
 Work on `protoncheck` is done by volunteers in their free time, and takes time and effort. To show your appreciation and to provide continued motivation for work on this and other open source software, please send a donation.
 
 [![](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/njtbracy)
