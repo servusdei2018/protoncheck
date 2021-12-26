@@ -6,7 +6,9 @@ import (
 )
 
 var (
+	// Username is your ProtonMail username/email address.
 	Username string
+	// Password is your ProtonMail password.
 	Password string
 )
 

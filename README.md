@@ -1,4 +1,5 @@
-# protoncheck  
+# protoncheck 
+[![](https://goreportcard.com/badge/github.com/servusdei2018/protoncheck)](https://goreportcard.com/report/github.com/servusdei2018/protoncheck) [![Go Reference](https://pkg.go.dev/badge/github.com/servusdei2018/protoncheck.svg)](https://pkg.go.dev/github.com/servusdei2018/protoncheck) [![](https://sonarcloud.io/api/project_badges/measure?project=servusdei2018_protoncheck&metric=alert_status)](https://sonarcloud.io/project/overview?id=servusdei2018_protoncheck)
 lightweight, fast waybar/polybar/yabar/i3blocks module to check the amount of unread emails in a ProtonMail inbox.
 
 ## Installation
