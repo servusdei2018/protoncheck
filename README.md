@@ -31,9 +31,9 @@ Below is a sample Polybar configuration to check your ProtonMail inbox every 30 
 ```yaml
 modules-right = protoncheck
 
-[module/protonmail]
+[module/protoncheck]
 type = custom/script
-exec = ~/bin/protoncheck --username USER@protonmail.com --password PASSWORD
+exec = ~/bin/protoncheck --username USER@protonmail.com --password PASSWORD | sed  's/^/ /'
 interval = 30
 click-left = xdg-open https://mail.protonmail.com/inbox
 ```
