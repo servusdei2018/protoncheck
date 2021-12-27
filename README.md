@@ -69,4 +69,4 @@ color=#A4C2F4
 ## Sponsoring
 Work on `protoncheck` is done by volunteers in their free time, and takes time and effort. To show your appreciation and to provide continued motivation for work on this and other open source software, please send a donation.
 
-[![](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/njtbracy)
+[![](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/donate?business=S9REMLHZB64NQ&no_recurring=0&item_name=Help+fund+my+college+tuition+and+open-source+work&currency_code=USD)
