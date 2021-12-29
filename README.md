@@ -9,6 +9,8 @@ You may compile protoncheck yourself or download a copy from the [Releases](http
 ## Usage
 Run `protoncheck`, using the `--username` and `--password` flags to supply your ProtonMail username and password, respectively. It will output the amount of unread emails in your inbox.
 
+> ⚠️  _Protoncheck doesn't work with accounts with 2FA enabled._
+
 #### waybar Config
 Below is a sample Waybar configuration to check your ProtonMail inbox every 30 seconds.
 
