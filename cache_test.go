@@ -8,7 +8,7 @@ import (
 
 func TestLoadCache(t *testing.T) {
 	got := LoadCache()
-	if got != nil && !errors.Is(err, os.ErrNotExist) {
+	if got != nil && !errors.Is(got, os.ErrNotExist) {
 		t.Errorf("got %s, wanted nil || os.ErrNotExist", got)
 	}
 }
