@@ -8,6 +8,8 @@ import (
 	api "github.com/ProtonMail/proton-bridge/pkg/pmapi"
 )
 
+const UserAgentStr = "ProtonMail/1.13.39 (Android 29; Google Marlin)"
+
 var (
 	// manager represents a ProtonMail client manager.
 	manager api.Manager
@@ -59,5 +61,5 @@ func Counts() (int, error) {
 
 // UserAgent returns a User-Agent string to be used in a User-Agent Header.
 func UserAgent() string {
-	return "ProtonMail/1.13.39 (Android 29; Google Marlin)"
+	return UserAgentStr
 }
