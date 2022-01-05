@@ -15,10 +15,10 @@ var (
 func init() {
 	flag.StringVar(&Username, "username", "", "ProtonMail username")
 	flag.StringVar(&Password, "password", "", "ProtonMail password")
-	flag.Parse()
 }
 
 func main() {
+	flag.Parse()
 	if Username == "" || Password == "" {
 		fmt.Println("error: Username and Password must be set")
 		return
