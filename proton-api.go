@@ -3,11 +3,11 @@ package main
 import (
 	"context"
 	"fmt"
-	"time"
 
 	api "github.com/ProtonMail/proton-bridge/pkg/pmapi"
 )
 
+// UserAgentStr represents the ProtonMail user agent.
 const UserAgentStr = "ProtonMail/1.13.39 (Android 29; Google Marlin)"
 
 var (
@@ -23,29 +23,33 @@ func init() {
 	manager = api.New(config)
 }
 
-// Counts retrieves the number of unread messages in a ProtonMail Inbox.
-func Counts() (int, error) {
+// Count retrieves the number of unread messages in a ProtonMail Inbox.
+func Count() {
 	var client api.Client
 	var err error
 
-	err = LoadCache()
-
-	// Attempt to login with cached refresh credentials.
-	if err == nil {
-		var refresh *api.AuthRefresh
-		if time.Unix(Cache.Expires, 0).Sub(time.Now()) <= 5*time.Minute {
-			err = fmt.Errorf("error: cache expired.")
-		}
-		client, refresh, err = manager.NewClientWithRefresh(context.Background(), Cache.UID, Cache.RefreshToken)
-		SaveCache(refresh.UID, refresh.RefreshToken, refresh.ExpiresIn)
+	// Ensure Username and Password are set.
+	if Username == "" || Password == "" {
+		fmt.Println("error: Username and Password must be set")
+		return
 	}
 
-	// Login with username and password.
+	// Attempt to login with cached refresh credentials.
+	if LoadCache() == nil {
+		var refresh *api.AuthRefresh
+		client, refresh, err = manager.NewClientWithRefresh(context.Background(), Cache.UID, Cache.RefreshToken)
+		if err != nil && refresh != nil {
+			SaveCache(refresh.UID, refresh.RefreshToken, refresh.ExpiresIn)
+		}
+	}
+
+	// If the cached credentials failed, login with username and password.
 	if err != nil {
 		var auth *api.Auth
 		client, auth, err = manager.NewClientWithLogin(context.Background(), Username, []byte(Password))
 		if err != nil {
-			return 0, err
+			fmt.Println(err)
+			return
 		}
 		SaveCache(auth.UID, auth.RefreshToken, auth.ExpiresIn)
 	}
@@ -53,10 +57,11 @@ func Counts() (int, error) {
 	// Get message counts.
 	counts, err := client.CountMessages(context.Background(), "")
 	if err != nil {
-		return 0, err
+		fmt.Println(err)
+		return
 	}
 
-	return counts[0].Unread, nil
+	fmt.Println(counts[0].Unread)
 }
 
 // UserAgent returns a User-Agent string to be used in a User-Agent Header.

@@ -6,17 +6,18 @@ import (
 )
 
 var (
+	// Cache ...
 	Cache RefreshCache
 )
 
 // RefreshCache caches ProtonMail refresh credentials.
 type RefreshCache struct {
 	// UID ...
-	UID string
+	UID string `json:"omitempty,"`
 	// RefreshToken ...
-	RefreshToken string
+	RefreshToken string `json:"omitempty,"`
 	// Expires stores the UNIX time when these credentials will expire.
-	Expires int64
+	Expires int64 `json:"omitempty"`
 }
 
 // SaveCache persists the cache to disk.

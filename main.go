@@ -2,7 +2,6 @@ package main
 
 import (
 	"flag"
-	"fmt"
 )
 
 var (
@@ -13,21 +12,12 @@ var (
 )
 
 func init() {
+	// Initialize flags.
 	flag.StringVar(&Username, "username", "", "ProtonMail username")
 	flag.StringVar(&Password, "password", "", "ProtonMail password")
 }
 
 func main() {
 	flag.Parse()
-	if Username == "" || Password == "" {
-		fmt.Println("error: Username and Password must be set")
-		return
-	}
-
-	count, err := Counts()
-	if err != nil {
-		fmt.Println(err)
-	} else {
-		fmt.Println(count)
-	}
+	Count()
 }
