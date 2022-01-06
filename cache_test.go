@@ -8,7 +8,7 @@ import (
 
 func TestLoadCache(t *testing.T) {
 	t.Run("CacheExists", func(t *testing.T) {
-		os.Create(".protoncheck")
+		SaveCache("uid", "token", 0)
 		got := LoadCache()
 		if got != nil {
 			t.Errorf("got %s, wanted nil", got)
