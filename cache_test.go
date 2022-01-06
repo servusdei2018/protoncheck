@@ -13,11 +13,11 @@ func TestLoadCache(t *testing.T) {
 		if got != nil {
 			t.Errorf("got %s, wanted nil", got)
 		}
-		os.Remove(".protoncheck")
+		os.Remove(CacheName)
 	})
 
 	t.Run("CacheDoesNotExist", func(t *testing.T) {
-		os.Remove(".protoncheck")
+		os.Remove(CacheName)
 		got := LoadCache()
 		want := os.ErrNotExist.Error()
 		if !errors.Is(got, os.ErrNotExist) {
@@ -28,9 +28,9 @@ func TestLoadCache(t *testing.T) {
 
 func TestSaveCache(t *testing.T) {
 	SaveCache("uid", "token", 0)
-	_, got := os.Stat(".protoncheck")
+	_, got := os.Stat(CacheName)
 	if got != nil {
 		t.Errorf("got %s, wanted nil", got)
 	}
-	os.Remove(".protoncheck")
+	os.Remove(CacheName)
 }

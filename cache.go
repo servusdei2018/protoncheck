@@ -5,6 +5,11 @@ import (
 	"os"
 )
 
+const (
+	// CacheName configures the name of the Cache file.
+	CacheName = ".protoncheck"
+)
+
 var (
 	// Cache ...
 	Cache RefreshCache
@@ -23,12 +28,12 @@ type RefreshCache struct {
 // SaveCache persists the cache to disk.
 func SaveCache(uid, refreshToken string, expires int64) {
 	json, _ := json.Marshal(RefreshCache{UID: uid, RefreshToken: refreshToken, Expires: expires})
-	os.WriteFile(".protoncheck", json, os.ModePerm)
+	os.WriteFile(CacheName, json, os.ModePerm)
 }
 
 // LoadCache attempts to load a prior cache into memory.
 func LoadCache() error {
-	data, err := os.ReadFile(".protoncheck")
+	data, err := os.ReadFile(CacheName)
 	if err != nil {
 		return err
 	}
