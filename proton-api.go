@@ -8,7 +8,7 @@ import (
 )
 
 // UserAgentStr represents the ProtonMail user agent.
-const UserAgentStr = "ProtonMail/1.13.39 (Android 29; Google Marlin)"
+const UserAgentStr = "ProtonMail/1.13.40 (Android 29; Google Marlin)"
 
 var (
 	// manager represents a ProtonMail client manager.
